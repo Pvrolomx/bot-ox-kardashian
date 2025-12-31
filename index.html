@@ -365,6 +365,7 @@
                     "Esto ya es acoso nivel diputado en antro.",
                     "Me caes bien pero como que no, sabes?",
                     "",
+                    "",
                     "Jaja te asustaste? Creiste que ya me habia ido? Never, babe.",
                     "Chaito corazon, fue lindo. Besis. &#128536;"
                 ],
@@ -410,6 +411,7 @@
                     "This is harassment, congressman-at-a-club level.",
                     "I kinda like you but also like, no, you know?",
                     "",
+                    "",
                     "Haha scared you? Thought I was gone? Never, babe.",
                     "Bye bye sweetheart, it was nice. Kisses. &#128536;"
                 ],
@@ -448,8 +450,8 @@
             let response;
             let isGhostClick = false;
             
-            // Click 10 (posicion 9) = ghost click, no muestra nada
-            if (positionInLoop === 9) {
+            // Click 10 y 11 (posiciones 9 y 10) = ghost clicks, no muestran nada
+            if (positionInLoop === 9 || positionInLoop === 10) {
                 clickCount++;
                 isGhostClick = true;
             }
