@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot-ox Kardashian | Artificialmente Perfecta</title>
+        <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#C9A96E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#C9A96E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -257,6 +265,7 @@
                 <li><a href="#nowhere" data-i18n="nav.gallery">Galeria</a></li>
                 <li><a href="#void" data-i18n="nav.contact">Contacto</a></li>
             </ul>
+            <a href="#" id="installBtn" class="install-link" style="display:none;font-size:0.65rem;color:#444;text-decoration:none;letter-spacing:1px;transition:color 0.3s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#444'">install</a>
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="setLang('es')">ES</button>
                 <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -428,6 +437,30 @@
             modal.innerHTML = '<div style="text-align:center;padding:3rem;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;font-style:italic;color:#C9A96E;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
             modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
             document.body.appendChild(modal);
+        }
+    
+        
+        // PWA Install
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('installBtn').style.display = 'inline';
+        });
+        
+        document.getElementById('installBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                document.getElementById('installBtn').style.display = 'none';
+            }
+        });
+        
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
         }
     </script>
 </body>
