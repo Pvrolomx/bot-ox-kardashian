@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot-ox Kardashian | Artificialmente Perfecta</title>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#C9A96E">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#C9A96E">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -457,14 +459,25 @@
                 const { outcome } = await deferredPrompt.userChoice;
                 deferredPrompt = null;
             } else {
-                // Instrucciones manuales
+                // Instrucciones manuales segun idioma
                 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                const msg = isIOS 
-                    ? 'En Safari: Toca el icono de Compartir y selecciona "Agregar a Inicio"'
-                    : 'En el menu del navegador (tres puntos), selecciona "Instalar app"';
+                const msgs = {
+                    es: {
+                        title: 'Instalar Bot-ox',
+                        ios: 'En Safari: Toca el icono de Compartir y selecciona "Agregar a Inicio"',
+                        android: 'En el menu del navegador (tres puntos), selecciona "Instalar app"'
+                    },
+                    en: {
+                        title: 'Install Bot-ox',
+                        ios: 'In Safari: Tap the Share icon and select "Add to Home Screen"',
+                        android: 'In the browser menu (three dots), select "Install app"'
+                    }
+                };
+                const t = msgs[currentLang] || msgs.es;
+                const msg = isIOS ? t.ios : t.android;
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
-                modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:400px;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;color:#C9A96E;margin-bottom:1rem;">Instalar Bot-ox</p><p style="font-size:0.9rem;color:#888;line-height:1.6;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
+                modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:400px;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;color:#C9A96E;margin-bottom:1rem;">' + t.title + '</p><p style="font-size:0.9rem;color:#888;line-height:1.6;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
                 modal.onclick = function(ev) { if (ev.target === modal) modal.remove(); };
                 document.body.appendChild(modal);
             }
