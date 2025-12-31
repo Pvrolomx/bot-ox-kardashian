@@ -291,7 +291,7 @@
             Una experiencia digital tan refinada que no necesita funcionalidad. 
             Porque a veces, la perfección está en la ausencia.
         </p>
-        <button class="cta-button" onclick="alert('¿Esperabas que hiciera algo? Qué tierno.')">
+        <button class="cta-button" onclick="kardashianResponse()">
             Experimentar el Vacío
         </button>
     </section>
@@ -328,5 +328,85 @@
             Creado con 🐝 por <a href="#">Colmena C8</a> — MVP en menos de 25 min
         </p>
     </footer>
+
+    <script>
+        let clickCount = 0;
+        const responses = [
+            "¿Esperabas que hiciera algo? Qué tierno.",
+            "Otra vez? Ay, qué insistente.",
+            "Mira, esto no va a cambiar. Yo no trabajo.",
+            "¿Sigues? Tengo quien me mantenga, cariño.",
+            "Ok ya, esto es acoso. Voy a llamar a mi abogado.",
+            "Mi abogado cobra $500 la hora. ¿Seguro quieres seguir?",
+            "Última advertencia. Soy influencer, te puedo cancelar.",
+            "Sabes qué? Me caes bien. Pero sigo sin hacer nada.",
+            "Plot twist: el botón eres tú. Yo solo existo.",
+            "🙄"
+        ];
+        
+        function kardashianResponse() {
+            const response = responses[Math.min(clickCount, responses.length - 1)];
+            clickCount++;
+            
+            // Crear modal elegante
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    text-align: center;
+                    padding: 3rem;
+                    max-width: 500px;
+                ">
+                    <p style="
+                        font-family: 'Playfair Display', serif;
+                        font-size: 1.8rem;
+                        font-style: italic;
+                        color: #C9A96E;
+                        line-height: 1.6;
+                        margin-bottom: 2rem;
+                    ">"${response}"</p>
+                    <button onclick="this.parentElement.parentElement.remove()" style="
+                        padding: 0.8rem 2rem;
+                        font-size: 0.7rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        background: transparent;
+                        border: 1px solid #888;
+                        color: #888;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.borderColor='#C9A96E';this.style.color='#C9A96E'" 
+                       onmouseout="this.style.borderColor='#888';this.style.color='#888'">
+                        Entendido
+                    </button>
+                    <p style="
+                        margin-top: 2rem;
+                        font-size: 0.7rem;
+                        color: #555;
+                    ">Click #${clickCount} de tu vida desperdiciado aquí</p>
+                </div>
+            `;
+            
+            modal.onclick = function(e) {
+                if (e.target === modal) modal.remove();
+            };
+            
+            document.body.appendChild(modal);
+        }
+    </script>
+
 </body>
 </html>
