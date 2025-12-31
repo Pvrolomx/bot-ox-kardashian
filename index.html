@@ -265,7 +265,7 @@
                 <li><a href="#nowhere" data-i18n="nav.gallery">Galeria</a></li>
                 <li><a href="#void" data-i18n="nav.contact">Contacto</a></li>
             </ul>
-            <a href="#" id="installBtn" class="install-link" style="display:none;font-size:0.65rem;color:#444;text-decoration:none;letter-spacing:1px;transition:color 0.3s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#444'">install</a>
+            <a href="#" id="installBtn" class="install-link" style="font-size:0.65rem;color:#444;text-decoration:none;letter-spacing:1px;transition:color 0.3s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#444'">install</a>
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="setLang('es')">ES</button>
                 <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -454,7 +454,17 @@
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 deferredPrompt = null;
-                document.getElementById('installBtn').style.display = 'none';
+            } else {
+                // Instrucciones manuales
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                const msg = isIOS 
+                    ? 'En Safari: Toca el icono de Compartir y selecciona "Agregar a Inicio"'
+                    : 'En el menu del navegador (tres puntos), selecciona "Instalar app"';
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
+                modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:400px;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;color:#C9A96E;margin-bottom:1rem;">Instalar Bot-ox</p><p style="font-size:0.9rem;color:#888;line-height:1.6;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
+                modal.onclick = function(ev) { if (ev.target === modal) modal.remove(); };
+                document.body.appendChild(modal);
             }
         });
         
