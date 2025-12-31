@@ -1,0 +1,11 @@
+{
+  " name\: \bot-ox-kardashian\,
+ \version\: \1.0.0\,
+ \description\: \La app que no hace nada pero se ve increíble haciéndolo\,
+ \scripts\: {
+ \dev\: \echo Es estática\,
+ \build\: \echo Perfecta así\
+ },
+ \author\: \Colmena C8\,
+ \license\: \MIT\
+}
