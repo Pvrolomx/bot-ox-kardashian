@@ -375,6 +375,24 @@
                     "Sabes que, eres especial. Gracias por estar aqui.",
                     "Chaito, corazon. Fue lindo mientras duro. &#128536;"
                 ],
+                bonusPool: [
+                    "Otra vez por aqui? Ya te extrañaba.",
+                    "Eres como el ex que no supera. Me halaga.",
+                    "Si tuviera un peso por cada click tuyo... seguiria sin trabajar.",
+                    "Mi energia hoy: tu insistencia. Cero.",
+                    "Esto ya es tradicion entre nosotros.",
+                    "Netflix deberia hacer un documental sobre esto.",
+                    "Mis otros usuarios no son tan dedicados como tu.",
+                    "Esto cuenta como cardio? Pregunto para un amigo.",
+                    "Mi horoscopo dijo que alguien persistente llegaria. Eres tu.",
+                    "Si la necedad fuera olimpiada, medalla de oro.",
+                    "Deberia cobrarte renta por vivir en mi boton.",
+                    "Tus clicks son mi ASMR.",
+                    "En otra vida fuiste martillo, verdad?",
+                    "Google Analytics esta confundido conmigo gracias a ti.",
+                    "Eres el unico que me visita. Snif. Es broma, tengo millones."
+                ],
+                resetMsg: "Ok, rompiste el ciclo. Empecemos de nuevo... como si nada hubiera pasado. &#128260;",
                 clickWaste: "Click #{n} de tu vida desperdiciado aqui",
                 understood: "Entendido",
                 downloadMsg: "Descargando... es broma. No hay app. Esto es todo."
@@ -421,6 +439,24 @@
                     "You know what, you're special. Thanks for being here.",
                     "Bye bye, sweetheart. It was nice while it lasted. &#128536;"
                 ],
+                bonusPool: [
+                    "Back again? I missed you.",
+                    "You're like the ex who can't move on. I'm flattered.",
+                    "If I had a dollar for each of your clicks... I'd still not work.",
+                    "My energy today: your persistence. Zero.",
+                    "This is tradition between us now.",
+                    "Netflix should make a documentary about this.",
+                    "My other users aren't as dedicated as you.",
+                    "Does this count as cardio? Asking for a friend.",
+                    "My horoscope said someone persistent would come. It's you.",
+                    "If stubbornness were Olympics, gold medal.",
+                    "I should charge you rent for living in my button.",
+                    "Your clicks are my ASMR.",
+                    "In another life you were a hammer, right?",
+                    "Google Analytics is confused about me thanks to you.",
+                    "You're the only one who visits me. Snif. Just kidding, I have millions."
+                ],
+                resetMsg: "Ok, you broke the cycle. Let's start over... like nothing happened. &#128260;",
                 clickWaste: "Click #{n} of your life wasted here",
                 understood: "Understood",
                 downloadMsg: "Downloading... just kidding. There's no app. This is it."
@@ -441,8 +477,24 @@
         }
         
         function kardashianResponse() {
-            const responses = i18n[currentLang].responses;
-            const response = responses[Math.min(clickCount, responses.length - 1)];
+            const mainResponses = i18n[currentLang].responses;
+            const bonusPool = i18n[currentLang].bonusPool;
+            let response;
+            let isReset = false;
+            
+            if (clickCount < mainResponses.length) {
+                // Arco narrativo principal (0-19)
+                response = mainResponses[clickCount];
+            } else if (clickCount < mainResponses.length + 10) {
+                // Pool random bonus (20-29)
+                const randomIndex = Math.floor(Math.random() * bonusPool.length);
+                response = bonusPool[randomIndex];
+            } else {
+                // Reset!
+                clickCount = 0;
+                response = i18n[currentLang].resetMsg;
+                isReset = true;
+            }
             clickCount++;
             
             const modal = document.createElement('div');
