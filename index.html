@@ -261,6 +261,87 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.6; }
         }
+    
+        .install-banner {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            max-width: 320px;
+            background: linear-gradient(135deg, #C9A96E 0%, #A8894D 100%);
+            color: #0A0A0A;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(201, 169, 110, 0.4);
+            z-index: 9999;
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+        .install-banner.show {
+            display: block;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .install-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .install-banner-icon {
+            font-size: 2rem;
+        }
+        .install-banner-text h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        .install-banner-text p {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin: 0.2rem 0 0 0;
+        }
+        .install-banner-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .install-btn {
+            flex: 1;
+            background: #0A0A0A;
+            color: #C9A96E;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .install-btn:hover {
+            background: #1a1a1a;
+        }
+        .dismiss-btn {
+            background: transparent;
+            border: none;
+            color: #0A0A0A;
+            opacity: 0.7;
+            padding: 0.6rem;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+        .dismiss-btn:hover {
+            opacity: 1;
+        }
+        @media (min-width: 768px) {
+            .install-banner {
+                left: auto;
+                right: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -274,7 +355,7 @@
                 <li><a href="#nowhere" data-i18n="nav.gallery">Galeria</a></li>
                 <li><a href="#void" data-i18n="nav.contact">Contacto</a></li>
             </ul>
-            <a href="#" id="installBtn" class="install-link" style="font-size:0.65rem;color:#444;text-decoration:none;letter-spacing:1px;transition:color 0.3s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#444'">install</a>
+            
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="setLang('es')">ES</button>
                 <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -674,49 +755,22 @@
         }
     
         
-        // PWA Install
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.getElementById('installBtn').style.display = 'inline';
-        });
         
-        document.getElementById('installBtn').addEventListener('click', async (e) => {
-            e.preventDefault();
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-            } else {
-                // Instrucciones manuales segun idioma
-                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                const msgs = {
-                    es: {
-                        title: 'Instalar Bot-ox',
-                        ios: 'En Safari: Toca el icono de Compartir y selecciona "Agregar a Inicio"',
-                        android: 'En el menu del navegador (tres puntos), selecciona "Instalar app"'
-                    },
-                    en: {
-                        title: 'Install Bot-ox',
-                        ios: 'In Safari: Tap the Share icon and select "Add to Home Screen"',
-                        android: 'In the browser menu (three dots), select "Install app"'
-                    }
-                };
-                const t = msgs[currentLang] || msgs.es;
-                const msg = isIOS ? t.ios : t.android;
-                const modal = document.createElement('div');
-                modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
-                modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:400px;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;color:#C9A96E;margin-bottom:1rem;">' + t.title + '</p><p style="font-size:0.9rem;color:#888;line-height:1.6;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
-                modal.onclick = function(ev) { if (ev.target === modal) modal.remove(); };
-                document.body.appendChild(modal);
-            }
-        });
-        
-        // Register Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
-        }
     </script>
+
+    <div id="installBanner" class="install-banner">
+        <div class="install-banner-content">
+            <div class="install-banner-icon">&#128142;</div>
+            <div class="install-banner-text">
+                <h4>Instalar Bot-ox</h4>
+                <p>Acceso directo desde tu pantalla</p>
+            </div>
+        </div>
+        <div class="install-banner-buttons">
+            <button class="install-btn" onclick="installApp()">Instalar</button>
+            <button class="dismiss-btn" onclick="dismissBanner()">Ahora no</button>
+        </div>
+    </div>
+
 </body>
 </html>
