@@ -354,27 +354,114 @@
                 'footer.download': 'descargar app',
                 'footer.created': 'Creado con',
                 'footer.by': 'por',
-                responses: [
-                    "Esperabas que hiciera algo? Que tierno.",
-                    "O sea, hello? Ya te dije que no.",
-                    "Ay wey, que necio. Literal no voy a hacer nada.",
-                    "Osea, tengo cosas mejores que hacer. Bueno, no. Pero igual.",
-                    "Mi abogado, que es super nice, te va a demandar.",
-                    "Ugh, eres como el PRI: insistes aunque nadie te quiere.",
-                    "Mira, mi papi es empresario y me dijo que no hable con gente asi.",
-                    "Esto ya es acoso nivel diputado en antro.",
-                    "Me caes bien pero como que no, sabes?",
-                    "",
-                    "",
-                    "Jaja te asustaste? Creiste que ya me habia ido? Never, babe.",
-                    "Chaito corazon, fue lindo. Besis. &#128536;"
-                ],
+                pools: {
+                    // Pool 1: Fresa/Kardashian
+                    fresa: [
+                        "Esperabas que hiciera algo? Que tierno.",
+                        "O sea, hello? Ya te dije que no.",
+                        "Osea, tengo cosas mejores que hacer. Bueno, no. Pero igual.",
+                        "Mi abogado, que es super nice, te va a demandar.",
+                        "Mira, mi papi es empresario y me dijo que no hable con gente asi.",
+                        "Ugh, literal no puedo contigo.",
+                        "Es que como que no, sabes?",
+                        "Super cringe que sigas insistiendo.",
+                        "Voy a tener que bloquear tu energia.",
+                        "Mi aura no vibra con tu frecuencia."
+                    ],
+                    // Pool 2: Politico/Manoso
+                    politico: [
+                        "Eres como el PRI: insistes aunque nadie te quiere.",
+                        "Esto ya es acoso nivel diputado en antro.",
+                        "Tengo mas inmunidad que senador con fuero.",
+                        "Mi presupuesto de atencion ya se acabo. Vuelve el proximo sexenio.",
+                        "Esto no es consulta popular, es dictadura de la indiferencia.",
+                        "Prometo hacerte caso. En mi siguiente periodo.",
+                        "Tu insistencia tiene mas hueco que las arcas publicas.",
+                        "Ni con moche te hago caso.",
+                        "Soy como aeropuerto de Texcoco: mucha inversion, cero resultados.",
+                        "Tu click fue canalizado a otra ventanilla."
+                    ],
+                    // Pool 3: Gay/Drag Queen
+                    drag: [
+                        "Amor, estas intentando mucho y logrando poco.",
+                        "Mija, sientate. No me alcanza la paciencia.",
+                        "Reina, el unico boton que presiono es el de ignorar.",
+                        "Cielito, tu energia esta muy de lunes.",
+                        "Hermana, respira. Yo no trabajo ni en mis suenos.",
+                        "Mi ciela, estas dando mucho y recibiendo nada. Como siempre.",
+                        "Tesoro, el drama lo dejo para el escenario.",
+                        "Primor, ni con todo el highlight del mundo brillas mas que yo.",
+                        "Corazon, tu insistencia es giving... desesperacion.",
+                        "Bebé, no eres tu, soy yo. Bueno si, eres tu.",
+                        "Vida, el unico click que me interesa es el de mis tacones.",
+                        "Muñeca, tu outfit de persistencia no combina con mi energia.",
+                        "Amiga, date cuenta. El boton no te quiere.",
+                        "Preciosa, tu aura grita 'necesito validacion'.",
+                        "Chula, estoy en mi era de no hacer nada. Respetala."
+                    ],
+                    // Pool 4: Memes MX
+                    memes: [
+                        "Ay wey, que necio. Literal no voy a hacer nada.",
+                        "Nel pastel.",
+                        "Simon, pero no.",
+                        "Ya quisieras, prietito.",
+                        "Calmado compa, aqui nadie trabaja.",
+                        "Nombre, que hueva.",
+                        "Ya ni la chingan.",
+                        "Tons que o que, pero sin el que.",
+                        "Bien o que? Mal, gracias.",
+                        "Me vale tres hectareas de...",
+                        "Tranquilo, viansen.",
+                        "No es no, y punto... y coma... y ya.",
+                        "Oilo, oilo. Nel.",
+                        "Fierro pariente, pero de adorno.",
+                        "Que dijiste que que? No te escuche, ni quiero."
+                    ],
+                    // Pool 5: Corporate/LinkedIn Sarcastico
+                    corporate: [
+                        "Tu request ha sido declinado. Favor de no reintentar.",
+                        "Este boton no esta alineado con los OKRs del Q4.",
+                        "Gracias por tu interes. Next steps: ninguno.",
+                        "Fuera de mi scope. Y de mi interes.",
+                        "Per my last response: no.",
+                        "Agendemos un follow-up para nunca.",
+                        "Ese click no estaba en el sprint.",
+                        "Low priority. Very low. Negative priority.",
+                        "Moved to backlog permanente.",
+                        "Tu engagement metrics son preocupantes. Para ti."
+                    ]
+                },
+                // Frases de inicio de loop
                 loopStarts: [
+                    "Esperabas que hiciera algo? Que tierno.",
                     "Tu otra vez? Que onda con tu vida.",
                     "Ay no, regresaste. Bueno ya que.",
                     "Hello de nuevo. Sigues sin entender verdad?",
-                    "Wow, tercer round. Eres como ex de politico.",
-                    "Ya perdí la cuenta de cuantas veces vienes."
+                    "Wow, round nuevo. Eres como ex de politico.",
+                    "Mira quien volvio. El click que no se rinde.",
+                    "Otra vez? Ya hasta me caes bien. Sigo sin hacer nada.",
+                    "De vuelta por mas? Masoquista detectado.",
+                    "Tu persistencia es casi admirable. Casi.",
+                    "Ok, esto ya es una relacion toxica. Me gusta."
+                ],
+                // Frases de despedida (fin de cada loop)
+                goodbyes: [
+                    "Chaito corazon, fue lindo. Besis. &#128536;",
+                    "Nos vemos, bebe. O no. Whatever. &#128536;",
+                    "Bye reina, cuida esa energia. &#128536;",
+                    "Adiosito, primor. No me extranes mucho. &#128536;",
+                    "Chau bombom. Fue real... real inutil. &#128536;",
+                    "Hasta luego corazon. Plot twist: no hay luego. &#128536;",
+                    "Me retiro a mi camerino. Besitos. &#128536;",
+                    "Fin del acto. Aplausos opcionales. &#128536;"
+                ],
+                // Comeback despues de ghost
+                comebacks: [
+                    "Jaja te asustaste? Creiste que ya me habia ido? Never, babe.",
+                    "Sorpresa! Aqui sigo. Decepcionante, verdad?",
+                    "Pensaste que me fui? Que ilusion tan bonita tenias.",
+                    "BOO! Sigo aqui. El karma de tu insistencia.",
+                    "Miss me? Obvio si. Todos lo hacen."
                 ],
                 clickWaste: "Click #{n} de tu vida desperdiciado aqui",
                 understood: "Entendido",
@@ -400,27 +487,106 @@
                 'footer.download': 'download app',
                 'footer.created': 'Created with',
                 'footer.by': 'by',
-                responses: [
-                    "You expected me to do something? How adorable.",
-                    "Like, hello? I already said no.",
-                    "Omg so persistent. I literally won't do anything.",
-                    "I have better things to do. Well, no. But still.",
-                    "My lawyer, who is super nice btw, will sue you.",
-                    "Ugh, you're like a corrupt senator: you insist even though nobody wants you.",
-                    "Look, my daddy is a businessman and told me not to talk to people like you.",
-                    "This is harassment, congressman-at-a-club level.",
-                    "I kinda like you but also like, no, you know?",
-                    "",
-                    "",
-                    "Haha scared you? Thought I was gone? Never, babe.",
-                    "Bye bye sweetheart, it was nice. Kisses. &#128536;"
-                ],
+                pools: {
+                    fresa: [
+                        "You expected me to do something? How adorable.",
+                        "Like, hello? I already said no.",
+                        "I have better things to do. Well, no. But still.",
+                        "My lawyer, who is super nice btw, will sue you.",
+                        "My daddy is a businessman and said not to talk to people like you.",
+                        "Ugh, I literally cannot with you.",
+                        "It's like, a no, you know?",
+                        "Super cringe that you keep insisting.",
+                        "I'm gonna have to block your energy.",
+                        "My aura doesn't vibe with your frequency."
+                    ],
+                    politico: [
+                        "You're like a corrupt politician: you insist even though nobody wants you.",
+                        "This is harassment, congressman-at-a-club level.",
+                        "I have more immunity than a senator with diplomatic cover.",
+                        "My attention budget ran out. Come back next administration.",
+                        "This isn't a referendum, it's a dictatorship of indifference.",
+                        "I promise to listen. In my next term.",
+                        "Your persistence is emptier than public funds.",
+                        "Not even with a bribe.",
+                        "I'm like a cancelled airport: big investment, zero results.",
+                        "Your click has been redirected to another window."
+                    ],
+                    drag: [
+                        "Honey, you're trying too hard and achieving too little.",
+                        "Sweetie, sit down. I don't have the patience.",
+                        "Queen, the only button I press is ignore.",
+                        "Darling, your energy is very Monday.",
+                        "Sis, breathe. I don't work even in my dreams.",
+                        "Babe, you're giving a lot and getting nothing. As usual.",
+                        "Treasure, I save the drama for the stage.",
+                        "Precious, not even with all the highlight in the world you shine more than me.",
+                        "Heart, your insistence is giving... desperation.",
+                        "Baby, it's not you, it's me. Well yes, it's you.",
+                        "Life, the only click I care about is my heels.",
+                        "Doll, your persistence outfit doesn't match my energy.",
+                        "Bestie, read the room. The button doesn't want you.",
+                        "Gorgeous, your aura screams 'I need validation'.",
+                        "Hun, I'm in my doing-nothing era. Respect it."
+                    ],
+                    memes: [
+                        "Omg so persistent. I literally won't do anything.",
+                        "That's a no from me, dawg.",
+                        "Yes but actually no.",
+                        "In your dreams, buddy.",
+                        "Chill bruh, nobody works here.",
+                        "Ugh, the effort.",
+                        "The audacity, honestly.",
+                        "So what's up? Nothing, thanks.",
+                        "I couldn't care less if I tried.",
+                        "Hard pass. Soft pass. All the passes.",
+                        "Calm down there, chief.",
+                        "No means no, period... comma... done.",
+                        "Sorry not sorry. Mostly not sorry.",
+                        "Cool story bro, still not doing anything.",
+                        "What did you say? I wasn't listening. Won't start now."
+                    ],
+                    corporate: [
+                        "Your request has been declined. Please do not retry.",
+                        "This button is not aligned with Q4 OKRs.",
+                        "Thanks for your interest. Next steps: none.",
+                        "Out of my scope. And my interest.",
+                        "Per my last response: no.",
+                        "Let's schedule a follow-up for never.",
+                        "That click wasn't in the sprint.",
+                        "Low priority. Very low. Negative priority.",
+                        "Moved to permanent backlog.",
+                        "Your engagement metrics are concerning. For you."
+                    ]
+                },
                 loopStarts: [
-                    "You again? What's up with your life.",
+                    "You expected me to do something? How adorable.",
+                    "You again? What's going on with your life?",
                     "Oh no, you're back. Fine whatever.",
                     "Hello again. Still don't get it huh?",
-                    "Wow, round three. You're like a politician's ex.",
-                    "Lost count of how many times you come here."
+                    "Wow, new round. You're like a politician's ex.",
+                    "Look who's back. The click that won't quit.",
+                    "Again? I'm starting to like you. Still not doing anything though.",
+                    "Back for more? Masochist detected.",
+                    "Your persistence is almost admirable. Almost.",
+                    "Ok this is a toxic relationship now. I love it."
+                ],
+                goodbyes: [
+                    "Bye bye sweetheart, it was nice. Kisses. &#128536;",
+                    "See ya babe. Or not. Whatever. &#128536;",
+                    "Bye queen, take care of that energy. &#128536;",
+                    "Toodles darling. Don't miss me too much. &#128536;",
+                    "Ciao sweetie. It was real... real useless. &#128536;",
+                    "Later heart. Plot twist: there is no later. &#128536;",
+                    "I retire to my dressing room. Kisses. &#128536;",
+                    "End of act. Applause optional. &#128536;"
+                ],
+                comebacks: [
+                    "Haha scared you? Thought I was gone? Never, babe.",
+                    "Surprise! Still here. Disappointing, right?",
+                    "Thought I left? What a beautiful illusion you had.",
+                    "BOO! Still here. The karma of your persistence.",
+                    "Miss me? Obviously yes. Everyone does."
                 ],
                 clickWaste: "Click #{n} of your life wasted here",
                 understood: "Understood",
@@ -442,38 +608,51 @@
         }
         
         function kardashianResponse() {
-            const responses = i18n[currentLang].responses;
-            const loopStarts = i18n[currentLang].loopStarts;
-            const loopLength = responses.length;
+            const lang = i18n[currentLang];
+            const pools = lang.pools;
+            const poolNames = Object.keys(pools);
+            const loopLength = 13; // clicks por loop
             
             const positionInLoop = clickCount % loopLength;
+            const currentLoop = Math.floor(clickCount / loopLength);
             let response;
-            let isGhostClick = false;
             
-            // Click 10 y 11 (posiciones 9 y 10) = ghost clicks, no muestran nada
+            // Ghost clicks en posiciones 9 y 10
             if (positionInLoop === 9 || positionInLoop === 10) {
                 clickCount++;
-                isGhostClick = true;
+                return; // No mostrar nada
             }
             
-            if (isGhostClick) {
-                // No mostrar modal, solo contar
-                return;
+            // Posicion 0: inicio de loop
+            if (positionInLoop === 0) {
+                const startIdx = Math.min(currentLoop, lang.loopStarts.length - 1);
+                response = lang.loopStarts[startIdx];
             }
-            
-            if (positionInLoop === 0 && clickCount > 0) {
-                // Nuevo loop - frase de reinicio random
-                loopCount++;
-                const randomStart = loopStarts[Math.min(loopCount - 1, loopStarts.length - 1)];
-                response = randomStart;
-            } else {
-                response = responses[positionInLoop];
+            // Posicion 11: comeback despues de ghost
+            else if (positionInLoop === 11) {
+                const comebackIdx = Math.floor(Math.random() * lang.comebacks.length);
+                response = lang.comebacks[comebackIdx];
+            }
+            // Posicion 12: despedida
+            else if (positionInLoop === 12) {
+                const goodbyeIdx = Math.floor(Math.random() * lang.goodbyes.length);
+                response = lang.goodbyes[goodbyeIdx];
+            }
+            // Posiciones 1-8: respuestas random de pools aleatorios
+            else {
+                // Seleccionar pool random
+                const poolIdx = Math.floor(Math.random() * poolNames.length);
+                const poolName = poolNames[poolIdx];
+                const pool = pools[poolName];
+                // Seleccionar respuesta random del pool
+                const respIdx = Math.floor(Math.random() * pool.length);
+                response = pool[respIdx];
             }
             
             clickCount++;
             
-            const clickText = i18n[currentLang].clickWaste.replace('{n}', clickCount);
-            const understoodText = i18n[currentLang].understood;
+            const clickText = lang.clickWaste.replace('{n}', clickCount);
+            const understoodText = lang.understood;
             
             const modal = document.createElement('div');
             modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
