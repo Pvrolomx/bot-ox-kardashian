@@ -363,8 +363,8 @@
                     "Mira, mi papi es empresario y me dijo que no hable con gente asi.",
                     "Esto ya es acoso nivel diputado en antro.",
                     "Me caes bien pero como que no, sabes?",
-                    "Plot twist: el boton eres tu. Yo solo existo para brillar.",
-                    "Casi me convences... nah, es broma. Sigue sonando.",
+                    "",
+                    "Jaja te asustaste? Creiste que ya me habia ido? Never, babe.",
                     "Chaito corazon, fue lindo. Besis. &#128536;"
                 ],
                 loopStarts: [
@@ -408,8 +408,8 @@
                     "Look, my daddy is a businessman and told me not to talk to people like you.",
                     "This is harassment, congressman-at-a-club level.",
                     "I kinda like you but also like, no, you know?",
-                    "Plot twist: the button is you. I just exist to shine.",
-                    "You almost convinced me... nah, just kidding. Keep dreaming.",
+                    "",
+                    "Haha scared you? Thought I was gone? Never, babe.",
                     "Bye bye sweetheart, it was nice. Kisses. &#128536;"
                 ],
                 loopStarts: [
@@ -445,6 +445,18 @@
             
             const positionInLoop = clickCount % loopLength;
             let response;
+            let isGhostClick = false;
+            
+            // Click 10 (posicion 9) = ghost click, no muestra nada
+            if (positionInLoop === 9) {
+                clickCount++;
+                isGhostClick = true;
+            }
+            
+            if (isGhostClick) {
+                // No mostrar modal, solo contar
+                return;
+            }
             
             if (positionInLoop === 0 && clickCount > 0) {
                 // Nuevo loop - frase de reinicio random
