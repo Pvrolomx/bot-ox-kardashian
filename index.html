@@ -8,12 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --gold: #C9A96E;
             --gold-light: #E8D5B0;
@@ -21,7 +16,6 @@
             --white: #FAFAFA;
             --gray: #888;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--black);
@@ -29,24 +23,19 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
         .gradient-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: 
                 radial-gradient(ellipse at 20% 20%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
                 var(--black);
             z-index: -1;
         }
-
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             padding: 1.5rem 4rem;
             display: flex;
             justify-content: space-between;
@@ -55,7 +44,6 @@
             backdrop-filter: blur(10px);
             background: rgba(10, 10, 10, 0.8);
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
@@ -63,13 +51,38 @@
             color: var(--gold);
             letter-spacing: 2px;
         }
-
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+        .lang-btn {
+            padding: 0.3rem 0.6rem;
+            background: transparent;
+            border: 1px solid var(--gray);
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn.active {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .lang-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
         .nav-links {
             display: flex;
             gap: 2.5rem;
             list-style: none;
         }
-
         .nav-links a {
             color: var(--white);
             text-decoration: none;
@@ -79,11 +92,7 @@
             text-transform: uppercase;
             transition: color 0.3s ease;
         }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
+        .nav-links a:hover { color: var(--gold); }
         .hero {
             min-height: 100vh;
             display: flex;
@@ -93,7 +102,6 @@
             text-align: center;
             padding: 2rem;
         }
-
         .hero-badge {
             font-size: 0.7rem;
             letter-spacing: 4px;
@@ -103,7 +111,6 @@
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
         }
-
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(3rem, 10vw, 7rem);
@@ -113,12 +120,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.2s forwards;
         }
-
-        .hero h1 span {
-            color: var(--gold);
-            font-style: italic;
-        }
-
+        .hero h1 span { color: var(--gold); font-style: italic; }
         .hero-subtitle {
             font-size: 1.1rem;
             font-weight: 300;
@@ -129,7 +131,6 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.4s forwards;
         }
-
         .cta-button {
             padding: 1rem 3rem;
             font-size: 0.8rem;
@@ -144,14 +145,12 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
         }
-
         .cta-button:hover {
             background: var(--gold);
             color: var(--black);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
         }
-
         .features {
             padding: 8rem 4rem;
             display: grid;
@@ -160,15 +159,9 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-        }
-
+        .feature { text-align: center; padding: 2rem; }
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             margin: 0 auto 1.5rem;
             border: 1px solid var(--gold);
             border-radius: 50%;
@@ -177,27 +170,23 @@
             justify-content: center;
             font-size: 1.5rem;
         }
-
         .feature h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--white);
         }
-
         .feature p {
             font-size: 0.9rem;
             color: var(--gray);
             line-height: 1.7;
         }
-
         .quote-section {
             padding: 8rem 4rem;
             text-align: center;
             border-top: 1px solid rgba(201, 169, 110, 0.2);
             border-bottom: 1px solid rgba(201, 169, 110, 0.2);
         }
-
         .quote {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.5rem, 4vw, 2.5rem);
@@ -207,68 +196,53 @@
             margin: 0 auto 2rem;
             line-height: 1.6;
         }
-
         .quote-author {
             font-size: 0.85rem;
             color: var(--gold);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-
         footer {
             padding: 4rem;
             text-align: center;
         }
-
         .footer-logo {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             color: var(--gold);
             margin-bottom: 1rem;
         }
-
         .footer-text {
             font-size: 0.8rem;
             color: var(--gray);
             letter-spacing: 1px;
         }
-
+        .download-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.65rem;
+            color: #444;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .download-link:hover { color: var(--gray); }
         .colmena-badge {
             margin-top: 2rem;
             font-size: 0.7rem;
             color: var(--gray);
             opacity: 0.5;
         }
-
-        .colmena-badge a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
+        .colmena-badge a { color: var(--gold); text-decoration: none; }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 2rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .features {
-                padding: 4rem 2rem;
-            }
-            .quote-section {
-                padding: 4rem 2rem;
-            }
+            nav { padding: 1rem 2rem; }
+            .nav-links { display: none; }
+            .features { padding: 4rem 2rem; }
+            .quote-section { padding: 4rem 2rem; }
         }
     </style>
 </head>
@@ -277,136 +251,184 @@
     
     <nav>
         <div class="logo">BOT-OX</div>
-        <ul class="nav-links">
-            <li><a href="#nothing">Servicios</a></li>
-            <li><a href="#nowhere">Galería</a></li>
-            <li><a href="#void">Contacto</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#nothing" data-i18n="nav.services">Servicios</a></li>
+                <li><a href="#nowhere" data-i18n="nav.gallery">Galeria</a></li>
+                <li><a href="#void" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('es')">ES</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
     </nav>
 
     <section class="hero">
-        <p class="hero-badge">✦ Artificialmente Perfecta ✦</p>
-        <h1>La Belleza de<br>No Hacer <span>Nada</span></h1>
-        <p class="hero-subtitle">
+        <p class="hero-badge" data-i18n="hero.badge">Artificialmente Perfecta</p>
+        <h1 data-i18n="hero.title">La Belleza de<br>No Hacer <span>Nada</span></h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
             Una experiencia digital tan refinada que no necesita funcionalidad. 
-            Porque a veces, la perfección está en la ausencia.
+            Porque a veces, la perfeccion esta en la ausencia.
         </p>
-        <button class="cta-button" onclick="kardashianResponse()">
-            Experimentar el Vacío
+        <button class="cta-button" onclick="kardashianResponse()" data-i18n="hero.cta">
+            Experimentar el Vacio
         </button>
     </section>
 
     <section class="features">
         <div class="feature">
-            <div class="feature-icon">∅</div>
-            <h3>Cero Funcionalidad</h3>
-            <p>Diseñada meticulosamente para no resolver ningún problema. Liberadora.</p>
+            <div class="feature-icon">&#8709;</div>
+            <h3 data-i18n="features.zero.title">Cero Funcionalidad</h3>
+            <p data-i18n="features.zero.desc">Disenada meticulosamente para no resolver ningun problema. Liberadora.</p>
         </div>
         <div class="feature">
-            <div class="feature-icon">◈</div>
-            <h3>100% Estética</h3>
-            <p>Cada pixel existe solo para verse bien. Sin distracciones utilitarias.</p>
+            <div class="feature-icon">&#9670;</div>
+            <h3 data-i18n="features.aesthetic.title">100% Estetica</h3>
+            <p data-i18n="features.aesthetic.desc">Cada pixel existe solo para verse bien. Sin distracciones utilitarias.</p>
         </div>
         <div class="feature">
-            <div class="feature-icon">∞</div>
-            <h3>Infinita Superficialidad</h3>
-            <p>Profundamente comprometidos con la superficie. Es un arte.</p>
+            <div class="feature-icon">&#8734;</div>
+            <h3 data-i18n="features.superficial.title">Infinita Superficialidad</h3>
+            <p data-i18n="features.superficial.desc">Profundamente comprometidos con la superficie. Es un arte.</p>
         </div>
     </section>
 
     <section class="quote-section">
-        <p class="quote">
+        <p class="quote" data-i18n="quote.text">
             "El verdadero lujo no es tener todo, es no necesitar hacer nada."
         </p>
-        <p class="quote-author">— Nadie Importante</p>
+        <p class="quote-author" data-i18n="quote.author">- Nadie Importante</p>
     </section>
 
     <footer>
         <div class="footer-logo">BOT-OX</div>
-        <p class="footer-text">Kardashian Approved* (*No realmente)</p>
+        <p class="footer-text" data-i18n="footer.approved">Kardashian Approved* (*No realmente)</p>
+        <a href="#" class="download-link" onclick="fakeDownload(event)" data-i18n="footer.download">descargar app</a>
         <p class="colmena-badge">
-            Creado con 🐝 por <a href="#">Colmena C8</a> — MVP en menos de 25 min
+            <span data-i18n="footer.created">Creado con</span> &#128029; <span data-i18n="footer.by">por</span> <a href="#">Colmena C8</a>
         </p>
     </footer>
 
     <script>
+        let currentLang = 'es';
         let clickCount = 0;
-        const responses = [
-            "¿Esperabas que hiciera algo? Qué tierno.",
-            "Otra vez? Ay, qué insistente.",
-            "Mira, esto no va a cambiar. Yo no trabajo.",
-            "¿Sigues? Tengo quien me mantenga, cariño.",
-            "Ok ya, esto es acoso. Voy a llamar a mi abogado.",
-            "Mi abogado cobra $500 la hora. ¿Seguro quieres seguir?",
-            "Última advertencia. Soy influencer, te puedo cancelar.",
-            "Sabes qué? Me caes bien. Pero sigo sin hacer nada.",
-            "Plot twist: el botón eres tú. Yo solo existo.",
-            "🙄"
-        ];
+        
+        const i18n = {
+            es: {
+                'nav.services': 'Servicios',
+                'nav.gallery': 'Galeria',
+                'nav.contact': 'Contacto',
+                'hero.badge': '&#10022; Artificialmente Perfecta &#10022;',
+                'hero.title': 'La Belleza de<br>No Hacer <span>Nada</span>',
+                'hero.subtitle': 'Una experiencia digital tan refinada que no necesita funcionalidad. Porque a veces, la perfeccion esta en la ausencia.',
+                'hero.cta': 'Experimentar el Vacio',
+                'features.zero.title': 'Cero Funcionalidad',
+                'features.zero.desc': 'Disenada meticulosamente para no resolver ningun problema. Liberadora.',
+                'features.aesthetic.title': '100% Estetica',
+                'features.aesthetic.desc': 'Cada pixel existe solo para verse bien. Sin distracciones utilitarias.',
+                'features.superficial.title': 'Infinita Superficialidad',
+                'features.superficial.desc': 'Profundamente comprometidos con la superficie. Es un arte.',
+                'quote.text': '"El verdadero lujo no es tener todo, es no necesitar hacer nada."',
+                'quote.author': '- Nadie Importante',
+                'footer.approved': 'Kardashian Approved* (*No realmente)',
+                'footer.download': 'descargar app',
+                'footer.created': 'Creado con',
+                'footer.by': 'por',
+                responses: [
+                    "Esperabas que hiciera algo? Que tierno.",
+                    "Otra vez? Ay, que insistente.",
+                    "Mira, esto no va a cambiar. Yo no trabajo.",
+                    "Sigues? Tengo quien me mantenga, carino.",
+                    "Ok ya, esto es acoso. Voy a llamar a mi abogado.",
+                    "Mi abogado cobra $500 la hora. Seguro quieres seguir?",
+                    "Ultima advertencia. Soy influencer, te puedo cancelar.",
+                    "Sabes que? Me caes bien. Pero sigo sin hacer nada.",
+                    "Plot twist: el boton eres tu. Yo solo existo.",
+                    "&#128580;"
+                ],
+                clickWaste: "Click #{n} de tu vida desperdiciado aqui",
+                understood: "Entendido",
+                downloadMsg: "Descargando... es broma. No hay app. Esto es todo."
+            },
+            en: {
+                'nav.services': 'Services',
+                'nav.gallery': 'Gallery',
+                'nav.contact': 'Contact',
+                'hero.badge': '&#10022; Artificially Perfect &#10022;',
+                'hero.title': 'The Beauty of<br>Doing <span>Nothing</span>',
+                'hero.subtitle': 'A digital experience so refined it needs no functionality. Because sometimes, perfection lies in absence.',
+                'hero.cta': 'Experience the Void',
+                'features.zero.title': 'Zero Functionality',
+                'features.zero.desc': 'Meticulously designed to solve no problems whatsoever. Liberating.',
+                'features.aesthetic.title': '100% Aesthetic',
+                'features.aesthetic.desc': 'Every pixel exists only to look good. No utilitarian distractions.',
+                'features.superficial.title': 'Infinite Superficiality',
+                'features.superficial.desc': 'Deeply committed to the surface. It is an art form.',
+                'quote.text': '"True luxury is not having everything, it is not needing to do anything."',
+                'quote.author': '- Nobody Important',
+                'footer.approved': 'Kardashian Approved* (*Not really)',
+                'footer.download': 'download app',
+                'footer.created': 'Created with',
+                'footer.by': 'by',
+                responses: [
+                    "You expected it to do something? How cute.",
+                    "Again? My, how persistent.",
+                    "Look, this won't change. I don't work.",
+                    "Still going? I have someone to support me, honey.",
+                    "Ok, this is harassment. I'm calling my lawyer.",
+                    "My lawyer charges $500/hour. Sure you want to continue?",
+                    "Last warning. I'm an influencer, I can cancel you.",
+                    "You know what? I like you. But I still won't do anything.",
+                    "Plot twist: the button is you. I just exist.",
+                    "&#128580;"
+                ],
+                clickWaste: "Click #{n} of your life wasted here",
+                understood: "Understood",
+                downloadMsg: "Downloading... just kidding. There's no app. This is it."
+            }
+        };
+        
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+            });
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+        }
         
         function kardashianResponse() {
+            const responses = i18n[currentLang].responses;
             const response = responses[Math.min(clickCount, responses.length - 1)];
             clickCount++;
             
-            // Crear modal elegante
             const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.9);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-                animation: fadeIn 0.3s ease;
-            `;
+            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
             
-            modal.innerHTML = `
-                <div style="
-                    text-align: center;
-                    padding: 3rem;
-                    max-width: 500px;
-                ">
-                    <p style="
-                        font-family: 'Playfair Display', serif;
-                        font-size: 1.8rem;
-                        font-style: italic;
-                        color: #C9A96E;
-                        line-height: 1.6;
-                        margin-bottom: 2rem;
-                    ">"${response}"</p>
-                    <button onclick="this.parentElement.parentElement.remove()" style="
-                        padding: 0.8rem 2rem;
-                        font-size: 0.7rem;
-                        letter-spacing: 2px;
-                        text-transform: uppercase;
-                        background: transparent;
-                        border: 1px solid #888;
-                        color: #888;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.borderColor='#C9A96E';this.style.color='#C9A96E'" 
-                       onmouseout="this.style.borderColor='#888';this.style.color='#888'">
-                        Entendido
-                    </button>
-                    <p style="
-                        margin-top: 2rem;
-                        font-size: 0.7rem;
-                        color: #555;
-                    ">Click #${clickCount} de tu vida desperdiciado aquí</p>
-                </div>
-            `;
+            const clickText = i18n[currentLang].clickWaste.replace('{n}', clickCount);
+            const understoodText = i18n[currentLang].understood;
             
-            modal.onclick = function(e) {
-                if (e.target === modal) modal.remove();
-            };
+            modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:500px;"><p style="font-family:Playfair Display,serif;font-size:1.8rem;font-style:italic;color:#C9A96E;line-height:1.6;margin-bottom:2rem;">"' + response + '"</p><button onclick="this.parentElement.parentElement.remove()" style="padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">' + understoodText + '</button><p style="margin-top:2rem;font-size:0.7rem;color:#555;">' + clickText + '</p></div>';
             
+            modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
+            document.body.appendChild(modal);
+        }
+        
+        function fakeDownload(e) {
+            e.preventDefault();
+            const msg = i18n[currentLang].downloadMsg;
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
+            modal.innerHTML = '<div style="text-align:center;padding:3rem;"><p style="font-family:Playfair Display,serif;font-size:1.2rem;font-style:italic;color:#C9A96E;">' + msg + '</p><button onclick="this.parentElement.parentElement.remove()" style="margin-top:2rem;padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">OK</button></div>';
+            modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
             document.body.appendChild(modal);
         }
     </script>
-
 </body>
 </html>
