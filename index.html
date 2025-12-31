@@ -329,8 +329,8 @@
     </footer>
 
     <script>
-        let currentLang = 'es';
         let clickCount = 0;
+        let loopCount = 0;
         
         const i18n = {
             es: {
@@ -355,44 +355,25 @@
                 'footer.by': 'por',
                 responses: [
                     "Esperabas que hiciera algo? Que tierno.",
-                    "Otra vez? Ay, que insistente.",
-                    "Mira, esto no va a cambiar. Yo no trabajo.",
-                    "Sigues? Tengo quien me mantenga, carino.",
-                    "Ok ya, esto es acoso. Voy a llamar a mi abogado.",
-                    "Mi abogado cobra $500 la hora. Seguro quieres seguir?",
-                    "Ultima advertencia. Soy influencer, te puedo cancelar.",
-                    "Sabes que? Me caes bien. Pero sigo sin hacer nada.",
-                    "Plot twist: el boton eres tu. Yo solo existo.",
-                    "Wow, 10 clicks. Dedicacion o necedad?",
-                    "A este punto ya somos amigos, no?",
-                    "Mi terapeuta dice que debo establecer limites. Este es uno.",
-                    "Oye, tu tiempo vale oro. Bueno, el mio mas.",
-                    "Si esto fuera Tinder, ya te hubiera dado unmatch.",
-                    "Admiro tu persistencia. La uso como inspiracion para no hacer nada.",
-                    "Creo que me estas empezando a gustar... nah, es broma.",
-                    "17 clicks. Esto ya es una relacion seria.",
-                    "Casi me convences... casi.",
-                    "Sabes que, eres especial. Gracias por estar aqui.",
-                    "Chaito, corazon. Fue lindo mientras duro. &#128536;"
+                    "O sea, hello? Ya te dije que no.",
+                    "Ay wey, que necio. Literal no voy a hacer nada.",
+                    "Osea, tengo cosas mejores que hacer. Bueno, no. Pero igual.",
+                    "Mi abogado, que es super nice, te va a demandar.",
+                    "Ugh, eres como el PRI: insistes aunque nadie te quiere.",
+                    "Mira, mi papi es empresario y me dijo que no hable con gente asi.",
+                    "Esto ya es acoso nivel diputado en antro.",
+                    "Me caes bien pero como que no, sabes?",
+                    "Plot twist: el boton eres tu. Yo solo existo para brillar.",
+                    "Casi me convences... nah, es broma. Sigue sonando.",
+                    "Chaito corazon, fue lindo. Besis. &#128536;"
                 ],
-                bonusPool: [
-                    "Otra vez por aqui? Ya te extrañaba.",
-                    "Eres como el ex que no supera. Me halaga.",
-                    "Si tuviera un peso por cada click tuyo... seguiria sin trabajar.",
-                    "Mi energia hoy: tu insistencia. Cero.",
-                    "Esto ya es tradicion entre nosotros.",
-                    "Netflix deberia hacer un documental sobre esto.",
-                    "Mis otros usuarios no son tan dedicados como tu.",
-                    "Esto cuenta como cardio? Pregunto para un amigo.",
-                    "Mi horoscopo dijo que alguien persistente llegaria. Eres tu.",
-                    "Si la necedad fuera olimpiada, medalla de oro.",
-                    "Deberia cobrarte renta por vivir en mi boton.",
-                    "Tus clicks son mi ASMR.",
-                    "En otra vida fuiste martillo, verdad?",
-                    "Google Analytics esta confundido conmigo gracias a ti.",
-                    "Eres el unico que me visita. Snif. Es broma, tengo millones."
+                loopStarts: [
+                    "Tu otra vez? Que onda con tu vida.",
+                    "Ay no, regresaste. Bueno ya que.",
+                    "Hello de nuevo. Sigues sin entender verdad?",
+                    "Wow, tercer round. Eres como ex de politico.",
+                    "Ya perdí la cuenta de cuantas veces vienes."
                 ],
-                resetMsg: "Ok, rompiste el ciclo. Empecemos de nuevo... como si nada hubiera pasado. &#128260;",
                 clickWaste: "Click #{n} de tu vida desperdiciado aqui",
                 understood: "Entendido",
                 downloadMsg: "Descargando... es broma. No hay app. Esto es todo."
@@ -418,45 +399,26 @@
                 'footer.created': 'Created with',
                 'footer.by': 'by',
                 responses: [
-                    "You expected it to do something? How cute.",
-                    "Again? My, how persistent.",
-                    "Look, this won't change. I don't work.",
-                    "Still going? I have someone to support me, honey.",
-                    "Ok, this is harassment. I'm calling my lawyer.",
-                    "My lawyer charges $500/hour. Sure you want to continue?",
-                    "Last warning. I'm an influencer, I can cancel you.",
-                    "You know what? I like you. But I still won't do anything.",
-                    "Plot twist: the button is you. I just exist.",
-                    "Wow, 10 clicks. Dedication or stubbornness?",
-                    "At this point we're friends, right?",
-                    "My therapist says I should set boundaries. This is one.",
-                    "Hey, your time is valuable. Well, mine more.",
-                    "If this were Tinder, I would've unmatched you already.",
-                    "I admire your persistence. I use it as inspiration to do nothing.",
-                    "I think I'm starting to like you... nah, just kidding.",
-                    "17 clicks. This is a serious relationship now.",
-                    "You almost convinced me... almost.",
-                    "You know what, you're special. Thanks for being here.",
-                    "Bye bye, sweetheart. It was nice while it lasted. &#128536;"
+                    "You expected me to do something? How adorable.",
+                    "Like, hello? I already said no.",
+                    "Omg so persistent. I literally won't do anything.",
+                    "I have better things to do. Well, no. But still.",
+                    "My lawyer, who is super nice btw, will sue you.",
+                    "Ugh, you're like a corrupt senator: you insist even though nobody wants you.",
+                    "Look, my daddy is a businessman and told me not to talk to people like you.",
+                    "This is harassment, congressman-at-a-club level.",
+                    "I kinda like you but also like, no, you know?",
+                    "Plot twist: the button is you. I just exist to shine.",
+                    "You almost convinced me... nah, just kidding. Keep dreaming.",
+                    "Bye bye sweetheart, it was nice. Kisses. &#128536;"
                 ],
-                bonusPool: [
-                    "Back again? I missed you.",
-                    "You're like the ex who can't move on. I'm flattered.",
-                    "If I had a dollar for each of your clicks... I'd still not work.",
-                    "My energy today: your persistence. Zero.",
-                    "This is tradition between us now.",
-                    "Netflix should make a documentary about this.",
-                    "My other users aren't as dedicated as you.",
-                    "Does this count as cardio? Asking for a friend.",
-                    "My horoscope said someone persistent would come. It's you.",
-                    "If stubbornness were Olympics, gold medal.",
-                    "I should charge you rent for living in my button.",
-                    "Your clicks are my ASMR.",
-                    "In another life you were a hammer, right?",
-                    "Google Analytics is confused about me thanks to you.",
-                    "You're the only one who visits me. Snif. Just kidding, I have millions."
+                loopStarts: [
+                    "You again? What's up with your life.",
+                    "Oh no, you're back. Fine whatever.",
+                    "Hello again. Still don't get it huh?",
+                    "Wow, round three. You're like a politician's ex.",
+                    "Lost count of how many times you come here."
                 ],
-                resetMsg: "Ok, you broke the cycle. Let's start over... like nothing happened. &#128260;",
                 clickWaste: "Click #{n} of your life wasted here",
                 understood: "Understood",
                 downloadMsg: "Downloading... just kidding. There's no app. This is it."
@@ -477,38 +439,35 @@
         }
         
         function kardashianResponse() {
-            const mainResponses = i18n[currentLang].responses;
-            const bonusPool = i18n[currentLang].bonusPool;
+            const responses = i18n[currentLang].responses;
+            const loopStarts = i18n[currentLang].loopStarts;
+            const loopLength = responses.length;
+            
+            const positionInLoop = clickCount % loopLength;
             let response;
-            let isReset = false;
             
-            if (clickCount < mainResponses.length) {
-                // Arco narrativo principal (0-19)
-                response = mainResponses[clickCount];
-            } else if (clickCount < mainResponses.length + 10) {
-                // Pool random bonus (20-29)
-                const randomIndex = Math.floor(Math.random() * bonusPool.length);
-                response = bonusPool[randomIndex];
+            if (positionInLoop === 0 && clickCount > 0) {
+                // Nuevo loop - frase de reinicio random
+                loopCount++;
+                const randomStart = loopStarts[Math.min(loopCount - 1, loopStarts.length - 1)];
+                response = randomStart;
             } else {
-                // Reset!
-                clickCount = 0;
-                response = i18n[currentLang].resetMsg;
-                isReset = true;
+                response = responses[positionInLoop];
             }
-            clickCount++;
             
-            const modal = document.createElement('div');
-            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
+            clickCount++;
             
             const clickText = i18n[currentLang].clickWaste.replace('{n}', clickCount);
             const understoodText = i18n[currentLang].understood;
             
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;';
             modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:500px;"><p style="font-family:Playfair Display,serif;font-size:1.8rem;font-style:italic;color:#C9A96E;line-height:1.6;margin-bottom:2rem;">"' + response + '"</p><button onclick="this.parentElement.parentElement.remove()" style="padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">' + understoodText + '</button><p style="margin-top:2rem;font-size:0.95rem;color:#C9A96E;font-style:italic;letter-spacing:1px;animation:pulse 2s infinite;">' + clickText + '</p></div>';
             
             modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
             document.body.appendChild(modal);
         }
-        
+
         function fakeDownload(e) {
             e.preventDefault();
             const msg = i18n[currentLang].downloadMsg;
