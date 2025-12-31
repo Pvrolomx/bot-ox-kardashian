@@ -256,6 +256,11 @@
             .features { padding: 4rem 2rem; }
             .quote-section { padding: 4rem 2rem; }
         }
+    
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
     </style>
 </head>
 <body>
@@ -426,7 +431,7 @@
             const clickText = i18n[currentLang].clickWaste.replace('{n}', clickCount);
             const understoodText = i18n[currentLang].understood;
             
-            modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:500px;"><p style="font-family:Playfair Display,serif;font-size:1.8rem;font-style:italic;color:#C9A96E;line-height:1.6;margin-bottom:2rem;">"' + response + '"</p><button onclick="this.parentElement.parentElement.remove()" style="padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">' + understoodText + '</button><p style="margin-top:2rem;font-size:0.7rem;color:#555;">' + clickText + '</p></div>';
+            modal.innerHTML = '<div style="text-align:center;padding:3rem;max-width:500px;"><p style="font-family:Playfair Display,serif;font-size:1.8rem;font-style:italic;color:#C9A96E;line-height:1.6;margin-bottom:2rem;">"' + response + '"</p><button onclick="this.parentElement.parentElement.remove()" style="padding:0.8rem 2rem;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid #888;color:#888;cursor:pointer;">' + understoodText + '</button><p style="margin-top:2rem;font-size:0.95rem;color:#C9A96E;font-style:italic;letter-spacing:1px;animation:pulse 2s infinite;">' + clickText + '</p></div>';
             
             modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
             document.body.appendChild(modal);
