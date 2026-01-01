@@ -702,7 +702,7 @@
             });
         }
         
-        function kardashianResponse() {
+        function kardashianResponse() { if (navigator.vibrate) navigator.vibrate(50);
             const lang = i18n[currentLang];
             const pools = lang.pools;
             const poolNames = Object.keys(pools);
