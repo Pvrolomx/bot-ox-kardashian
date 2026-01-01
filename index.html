@@ -770,6 +770,39 @@
     
         
         
+    
+        // PWA Install functionality
+        let deferredPrompt;
+        const installBanner = document.getElementById("installBanner");
+        
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            setTimeout(() => {
+                if (installBanner) installBanner.classList.add("show");
+            }, 3000);
+        });
+        
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((r) => {
+                    deferredPrompt = null;
+                    dismissBanner();
+                });
+            } else {
+                alert("Toca compartir y Agregar a inicio");
+            }
+        }
+        
+        function dismissBanner() {
+            if (installBanner) installBanner.classList.remove("show");
+        }
+        
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js");
+        }
+    
     </script>
 
     <div id="installBanner" class="install-banner">
