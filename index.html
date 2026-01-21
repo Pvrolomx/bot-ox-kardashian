@@ -20,6 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        .matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; display: none; } 
+        .matrix-msg { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10000; color: #00ff00; font-family: monospace; font-size: 1.5rem; text-align: center; display: none; text-shadow: 0 0 10px #00ff00; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --gold: #C9A96E;
@@ -358,6 +360,7 @@
     </style>
 </head>
 <body>
+    <canvas id="matrixCanvas" class="matrix-canvas"></canvas><div id="matrixMsg" class="matrix-msg"></div>
     <div class="gradient-bg"></div>
     
     <nav>
@@ -704,6 +707,12 @@
             let response;
             
             // Ghost clicks en posiciones 9 y 10
+            // Matrix rain scare en posicion 7 
+            if (positionInLoop === 7) { 
+                startMatrixRain(); 
+                clickCount++; 
+                return; 
+            }
             if (positionInLoop === 9 || positionInLoop === 10) {
                 clickCount++;
                 return; // No mostrar nada
@@ -794,6 +803,9 @@
             navigator.serviceWorker.register("/sw.js");
         }
     
+        const matrixScareMessages = { es: ["Te asustaste, querido?", "Pensaste que era virus? Ay.", "Neo te manda saludos.", "Matrix te hackeo. Es broma. O no?"], en: ["Did I scare you?", "Thought it was a virus? Aw.", "Neo says hi.", "Matrix hacked you. Kidding. Or not?"] }; 
+        function startMatrixRain() { const canvas = document.getElementById("matrixCanvas"); const ctx = canvas.getContext("2d"); canvas.style.display = "block"; canvas.width = window.innerWidth; canvas.height = window.innerHeight; const chars = "アイウエオカキクケコ0123456789"; const fontSize = 14; const columns = canvas.width / fontSize; const drops = Array(Math.floor(columns)).fill(1); let frameCount = 0; function draw() { ctx.fillStyle = "rgba(0,0,0,0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = "#0F0"; ctx.font = fontSize + "px monospace"; for (let i = 0; i < drops.length; i++) { const char = chars[Math.floor(Math.random() * chars.length)]; ctx.fillText(char, i * fontSize, drops[i] * fontSize); if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0; drops[i]++; } frameCount++; if (frameCount < 180) requestAnimationFrame(draw); else endMatrixRain(); } draw(); } 
+        function endMatrixRain() { const canvas = document.getElementById("matrixCanvas"); const msg = document.getElementById("matrixMsg"); const msgs = matrixScareMessages[currentLang] || matrixScareMessages.es; msg.textContent = msgs[Math.floor(Math.random() * msgs.length)]; msg.style.display = "block"; setTimeout(() => { canvas.style.display = "none"; msg.style.display = "none"; }, 2000); }
     </script>
 
     <div id="installBanner" class="install-banner">
